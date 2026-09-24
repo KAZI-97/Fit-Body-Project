@@ -27,7 +27,7 @@ const Exercise_Cart = ({ exercise_data }: props) => {
 
   return (
     <>
-      <Link src=''>
+      <Link href={`/Cart_Details/${id}`}>
         <div className="w-[300px] overflow-hidden rounded-xl border border-[#2A2D35] bg-[#17191F] shadow-sm">
           {/* Image */}
           <div>
@@ -46,17 +46,17 @@ const Exercise_Cart = ({ exercise_data }: props) => {
             <div
               className={`[var(--font-inter)] flex flex-wrap gap-2 font-bold text-[#000000]`}
             >
-              {muscleGroups.map((type: string) => (
-                <>
-                  {
+              {muscleGroups.map((type: string,ind:number) => (
+                
+                  
                     <h1
                       className="rounded-2xl border border-box bg-[#C2F800] px-3 py-1 text-[10px] uppercase"
-                      key={type}
+                      key={ind}
                     >
                       {type}
                     </h1>
-                  }
-                </>
+                  
+                
               ))}
             </div>
 
