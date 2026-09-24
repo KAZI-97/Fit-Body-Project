@@ -18,7 +18,7 @@ const PlanTab = () => {
     }
   return (
     <>
-      <div className="flex flex-col gap-3 justify-center items-center p-10">
+      <div className="flex flex-col gap-3">
         {todayplan.length === 0 ? (
           <h1 className="text-[#9296A0]">
             Nothing's Here Yet.
