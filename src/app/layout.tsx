@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Shared Components/Navbar";
 import { Inter, Oswald } from "next/font/google";
+import ExerciseContextProvider from "@/Context/ExerciseContext";
+import { ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,11 +37,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className={`${inter.className} ${oswald.className} min-h-full flex flex-col bg-black`}>
-        <Navbar></Navbar>
-        {children}
-        
-        </body>
+      <body
+        className={`${inter.className} ${oswald.className} min-h-full flex flex-col bg-black`}
+      >
+        <ExerciseContextProvider>
+          <Navbar></Navbar>
+          {children}
+          <ToastContainer />
+        </ExerciseContextProvider>
+      </body>
     </html>
   );
 }

@@ -1,3 +1,5 @@
+import AddtoButton from "@/app/Components/Exercise/Add_Button/Addto_Button";
+import SavetoButton from "@/app/Components/Exercise/Save_Button/Saveto_Button";
 import Image from "next/image";
 import React from "react";
 interface IExerciseDetails {
@@ -84,7 +86,7 @@ const CartDetailsPage = async ({ params }: IExerciseDetails) => {
           <div className="mt-6">
             <h2 className="text-base font-bold">Instructions</h2>
             <ol className="mt-3 space-y-2">
-              {cart_details.instructions.map((step, i) => (
+              {cart_details.instructions.map((step:string, i:number) => (
                 <li key={i} className="flex gap-3 text-sm text-neutral-300">
                   <span className="text-neutral-500">{i + 1}.</span>
                   <span>{step}</span>
@@ -95,12 +97,8 @@ const CartDetailsPage = async ({ params }: IExerciseDetails) => {
 
           {/* Actions */}
           <div className="mt-6 flex flex-wrap gap-3">
-            <button className="rounded-lg bg-lime-400 px-5 py-2.5 text-sm font-semibold text-black">
-              Add to today's plan
-            </button>
-            <button className="rounded-lg border border-neutral-700 px-5 py-2.5 text-sm font-semibold text-white">
-              Save for later
-            </button>
+            <AddtoButton cart_details={cart_details}></AddtoButton>
+            <SavetoButton cart_details={cart_details}></SavetoButton>
           </div>
         </div>
       </div>
