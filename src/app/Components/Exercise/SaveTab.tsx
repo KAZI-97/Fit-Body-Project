@@ -39,7 +39,7 @@ const SaveTab = () => {
           saveplan.map((splan) => (
             <div
               key={splan.id}
-              className="mx-auto flex w-max-5xl items-center gap-4 rounded-2xl border border-white/5 bg-[#12151c] p-3"
+              className=" flex items-center gap-4 rounded-2xl border border-white/5 bg-[#12151c] p-3"
             >
               {/* Image */}
               <div className="shrink-0 overflow-hidden rounded-xl">
