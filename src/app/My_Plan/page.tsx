@@ -113,7 +113,6 @@ const MyPlanPage = () => {
             <select
               value = {sortby}
               onChange = {(e) => setsortby(e.target.value as typeof sortby)}
-              defaultValue="Duration"
               className="select select-primary"
             >
               <option disabled>Select Option</option>
