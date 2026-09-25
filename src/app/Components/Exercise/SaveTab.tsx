@@ -6,6 +6,7 @@ import React, { useContext } from "react";
 import { FaBurn, FaRegStar } from "react-icons/fa";
 import { IoMdClose, IoMdTime } from "react-icons/io";
 import { ExContext } from "@/Context/ExerciseContext";
+import { toast } from "react-toastify";
 
 const SaveTab = () => {
   const { saveplan, setsaveplan } = useContext(ExContext);
@@ -13,6 +14,7 @@ const SaveTab = () => {
   const HandleDeleteSave = (id: number) => {
     const UpdateSave = saveplan.filter((splan) => splan.id != id);
     setsaveplan(UpdateSave);
+    toast.warning("Deleted from the Save List")
   };
 
   return (

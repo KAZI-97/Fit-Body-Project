@@ -5,6 +5,7 @@ import Navbar from "./Components/Shared Components/Navbar";
 import { Inter, Oswald } from "next/font/google";
 import ExerciseContextProvider from "@/Context/ExerciseContext";
 import { ToastContainer } from "react-toastify";
+import Footer from "./Components/Shared Components/Footer";
 // import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ToastContainer />
         </ExerciseContextProvider>
       </body>
+      <Footer></Footer>
     </html>
   );
 }

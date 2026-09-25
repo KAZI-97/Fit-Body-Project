@@ -1,11 +1,11 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
 import { FaBurn, FaRegStar } from "react-icons/fa";
 import { IoMdCheckmark, IoMdClose, IoMdTime } from "react-icons/io";
 import { ExContext } from "@/Context/ExerciseContext";
+import { toast } from "react-toastify";
 
 const PlanTab = () => {
   const { todayplan, settodayplan } = useContext(ExContext);
@@ -13,15 +13,26 @@ const PlanTab = () => {
   const HandleDeleteplan = (id: number) => {
     const newPlan = todayplan.filter((tplan) => tplan.id != id);
     settodayplan(newPlan);
+    toast.warning("Deleted from the Plan List")
   };
+  // Work on mark as done button
+    const HandleMarkAsDoneBtn = (id: number) => {
+      const newPlan = todayplan.filter((tplan) => tplan.id != id);
+      settodayplan(newPlan);
+      toast.success("Plan is Marked as done!");
+    };
 
   return (
     <div className="flex flex-col gap-3">
       {todayplan.length === 0 ? (
         // Empty State
         <div className="flex min-h-[300px] flex-col items-center justify-center gap-4  mb-10">
-          <h1 className="text-[#FFFFFF] [var(--font-oswald)] font-bold text-4xl">Nothing's Here Yet.</h1>
-          <p className="text-[#A1A1AA] [var(--font-inter)]   text-3xl">Browse the library and add a lift to get today moving.</p>
+          <h1 className="text-[#FFFFFF] [var(--font-oswald)] font-bold text-4xl">
+            Nothing's Here Yet.
+          </h1>
+          <p className="text-[#A1A1AA] [var(--font-inter)]   text-3xl">
+            Browse the library and add a lift to get today moving.
+          </p>
 
           <Link href="/">
             <button className="rounded-full bg-[#c8f902] px-5 py-2.5 text-sm font-semibold text-black transition hover:brightness-95">
@@ -89,7 +100,10 @@ const PlanTab = () => {
               </Link>
 
               {/* Mark as Done */}
-              <button className="flex items-center gap-1.5 rounded-full bg-[#c8f902] px-4 py-2 text-xs font-semibold text-black transition hover:brightness-95">
+              <button
+                onClick={() => HandleMarkAsDoneBtn(plan.id)}
+                className="flex items-center gap-1.5 rounded-full bg-[#c8f902] px-4 py-2 text-xs font-semibold text-black transition hover:brightness-95"
+              >
                 <IoMdCheckmark className="text-sm" />
                 Mark as Done
               </button>

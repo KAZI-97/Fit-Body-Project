@@ -7,25 +7,32 @@ import { toast } from "react-toastify";
 
 const SavetoButton = ({ cart_details }: { cart_details: IExercise }) => {
   const { saveplan, setsaveplan } = useContext(ExContext);
-  const [savebtnstatus, setsavebtnstatus] = useState<boolean>(false);
+  // const [savebtnstatus, setsavebtnstatus] = useState<boolean>(false);
 
+   const isAdded = saveplan.some(
+    (plan: IExercise) => plan.id === cart_details.id
+  );
   const HandleAddtoSaveButton = () => {
+     if (isAdded) return;
     setsaveplan([...saveplan, cart_details]);
     toast.success("Exercise has been added to your save tab successfully");
-    setsavebtnstatus(true);
+    // setsavebtnstatus(true);
   };
 
   return (
     <button
       onClick={HandleAddtoSaveButton}
-      disabled={savebtnstatus}
+      // disabled={savebtnstatus}
+      disabled = {isAdded}
       className={
-        !savebtnstatus
+        // 
+          !isAdded
           ? "flex items-center gap-2 rounded-xl border border-neutral-700 px-5 py-2.5 text-sm font-semibold text-white"
           : "flex items-center gap-2 rounded-full bg-neutral-700 px-5 py-2.5 text-sm font-semibold text-neutral-400 cursor-not-allowed"
       }
     >
-      {!savebtnstatus ? (
+      {/* {!savebtnstatus ? ( */}
+      {!isAdded ? (
         <>
           <IoMdAdd size={20} />
           Save for Later

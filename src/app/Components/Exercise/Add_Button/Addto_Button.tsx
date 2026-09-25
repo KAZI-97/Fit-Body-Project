@@ -7,25 +7,31 @@ import { toast } from "react-toastify";
 
 const AddtoButton = ({ cart_details }: { cart_details: IExercise }) => {
   const { todayplan, settodayplan,planincrement,setplanincrement } = useContext(ExContext);
-  const [btnstatus, setbtnstatus] = useState<boolean>(false);
-
+  // const [btnstatus, setbtnstatus] = useState<boolean>(false);
+  const isAdded = todayplan.some(
+      (plan: IExercise) => plan.id === cart_details.id
+    );
   const HandleAddButton = () => {
+    if (isAdded) return;
     settodayplan([...todayplan, cart_details]);
     toast.success("Exercise has been added to your plan successfully");
-    setbtnstatus(true);
+    // setbtnstatus(true);
   };
 
   return (
     <button
       onClick={HandleAddButton}
-      disabled={btnstatus}
+      // disabled={btnstatus}
+      disabled={isAdded}
       className={
-        !btnstatus
+        // !btnstatus
+        !isAdded
           ? "flex items-center gap-2 rounded-full bg-[#c8f902] px-5 py-2.5 text-sm font-semibold text-black transition hover:brightness-95"
           : "flex items-center gap-2 rounded-full bg-neutral-700 px-5 py-2.5 text-sm font-semibold text-neutral-400 cursor-not-allowed"
       }
     >
-      {!btnstatus ? (
+      {/* {!btnstatus ? ( */}
+      {!isAdded ? (
         <>
           <IoMdAdd className="text-lg" />
           Add to Today's Plan
