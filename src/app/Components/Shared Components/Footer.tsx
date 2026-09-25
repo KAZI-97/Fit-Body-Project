@@ -9,11 +9,11 @@ const Footer = () => {
         <div className="flex justify-between items-center">
           <div className="flex gap-2.5">
             <Image src={logo} alt="Logo Image" width={28} height={28}></Image>
-            <h1 className={`[var(--font-oswald)] text-[#FFFFFF] text-2xl`}>FITLOG</h1>
+            <h1 className={`[var(--font-oswald)] text-[#FFFFFF]`}>FITLOG</h1>
           </div>
         </div>
         <div>
-            <h1 className="text-[#6B7280] font-bold text-2xl">© 2026 FitLog — Workout Library. Train hard, log honest.</h1>
+            <h1 className="text-[#6B7280] font-bold ">© 2026 FitLog — Workout Library. Train hard, log honest.</h1>
         </div>
       </div>
     </footer>

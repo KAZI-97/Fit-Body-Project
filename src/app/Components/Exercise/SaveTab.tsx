@@ -8,8 +8,30 @@ import { IoMdClose, IoMdTime } from "react-icons/io";
 import { ExContext } from "@/Context/ExerciseContext";
 import { toast } from "react-toastify";
 
-const SaveTab = () => {
+const SaveTab = ({sortby}) => {
   const { saveplan, setsaveplan } = useContext(ExContext);
+
+  const sortedSave = () => {
+    // if we apply sort here, the main  array will be modified. thats why we will spread it temporary variable
+    const temp_save_value = [...saveplan];
+    if (sortby === "Duration") {
+      temp_save_value.sort((a, b) => {
+        return a.duration - b.duration;
+      });
+    }
+    if (sortby === "Rating") {
+      temp_save_value.sort((a, b) => {
+        return a.rating - b.rating;
+      });
+    }
+    if (sortby === "Calories") {
+      temp_save_value.sort((a, b) => {
+        return a.caloriesBurned - b.caloriesBurned;
+      });
+    }
+    return temp_save_value;
+  };
+  const getsortedsave = sortedSave()
 
   const HandleDeleteSave = (id: number) => {
     const UpdateSave = saveplan.filter((splan) => splan.id != id);
@@ -38,7 +60,7 @@ const SaveTab = () => {
             </Link>
           </div>
         ) : (
-          saveplan.map((splan) => (
+          getsortedsave.map((splan) => (
             <div
               key={splan.id}
               className=" flex items-center gap-4 rounded-2xl border border-white/5 bg-[#12151c] p-3"

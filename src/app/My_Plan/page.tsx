@@ -62,6 +62,9 @@ import SaveTab from "../Components/Exercise/SaveTab";
 
 const MyPlanPage = () => {
   const [activeTab, setActiveTab] = useState<"plan" | "save">("plan");
+  const [sortby, setsortby] = useState<"Duration" | "Calories" | "Rating">(
+    "Duration",
+  );
 
   return (
     <>
@@ -91,7 +94,7 @@ const MyPlanPage = () => {
             onChange={() => setActiveTab("plan")}
           />
           <div className="tab-content bg-base-100 border-base-300 p-6 w-max-5xl mx-auto">
-            <PlanTab />
+            <PlanTab sortby = {sortby}/>
           </div>
 
           <input
@@ -103,10 +106,22 @@ const MyPlanPage = () => {
             onChange={() => setActiveTab("save")}
           />
           <div className="tab-content bg-base-100 border-base-300 p-6">
-            <SaveTab />
+            <SaveTab sortby = {sortby}/>
           </div>
 
-          <div className="ml-auto flex items-center gap-2 pr-2 min-w-[160px] justify-end"></div>
+          <div className="ml-auto flex items-center gap-2 pr-2 min-w-[160px] justify-end">
+            <select
+              value = {sortby}
+              onChange = {(e) => setsortby(e.target.value as typeof sortby)}
+              defaultValue="Duration"
+              className="select select-primary"
+            >
+              <option disabled>Select Option</option>
+              <option>Duration</option>
+              <option>Calories</option>
+              <option>Rating</option>
+            </select>
+          </div>
         </div>
       </section>
     </>

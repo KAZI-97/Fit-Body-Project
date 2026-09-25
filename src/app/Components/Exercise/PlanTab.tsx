@@ -6,9 +6,32 @@ import { FaBurn, FaRegStar } from "react-icons/fa";
 import { IoMdCheckmark, IoMdClose, IoMdTime } from "react-icons/io";
 import { ExContext } from "@/Context/ExerciseContext";
 import { toast } from "react-toastify";
+import { IExercise } from "@/Type/type";
 
-const PlanTab = () => {
+const PlanTab = ({sortby}) => {
   const { todayplan, settodayplan } = useContext(ExContext);
+  // sorted plan
+  const sortedPlan = () => {
+    // if we apply sort here, the main  array will be modified. thats why we will spread it temporary variable
+    const temp_value = [...todayplan];
+    if (sortby === "Duration") {
+      temp_value.sort((a, b) => {
+        return a.duration - b.duration;
+      });
+    }
+    if (sortby === "Rating") {
+      temp_value.sort((a, b) => {
+        return a.rating - b.rating;
+      });
+    }
+    if (sortby === "Calories") {
+      temp_value.sort((a, b) => {
+        return a.caloriesBurned - b.caloriesBurned;
+      });
+    }
+    return temp_value;
+  };
+  const getsortedplan = sortedPlan()
 
   const HandleDeleteplan = (id: number) => {
     const newPlan = todayplan.filter((tplan) => tplan.id != id);
@@ -42,7 +65,7 @@ const PlanTab = () => {
         </div>
       ) : (
         // Today's Plan
-        todayplan.map((plan) => (
+        getsortedplan.map((plan) => (
           <div
             key={plan.id}
             className="flex items-center gap-4 rounded-2xl border border-white/5 bg-[#12151c] p-3"
