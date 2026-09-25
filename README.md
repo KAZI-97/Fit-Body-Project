@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Project name: Fit Body Project
 
-## Getting Started
+Short description about Project:
+This was my first Assignment using Nextjs and i think it was toughest assignment till now. Most of the topics was new to me and was pretty much challenging. In this project i tried to apply mostly everything i have learned throughout this course till now. here You will be able to see different data related to exercise and their working process. You can also see the details of the exercise by just clicking on the cart. You can add your desired exercise to your current plan or keep them for future using save button. You can see the total amount of calories your are burning by doing this exercise and the required time to complete this exercise. Also u can delete your exercise from both plan or save option. Lastly if u checkmark the complete button it will remove from ur tab
 
-First, run the development server:
+Technologies Used:
+1. Next JS
+2. Daisy Ui
+3. Context Api
+4. React libraries
+5. tailwind css
+6. React Tostify and Icons
+7. Little bit AI Help
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+5 key features of the project:
+1. By clicking on the cart you will be able to see the details of that exercise
+2. You can add your desired exercise to plan tab by clicking "Add to today's Plan" button
+3. You can also add the exercise for letter by clicking "Save for letter" button
+4. There is remove button for both save and plan tab and u can delete ur exercise from there
+5. By Clicking "Mark As Done" you can complete your exercise and it will remove from the plan tab
+6. You can see the total number of exercise, total time require for your exercise and number of calories you are burning by doing these exercise
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
