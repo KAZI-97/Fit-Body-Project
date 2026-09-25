@@ -1,12 +1,13 @@
 "use client";
 import { ExContext } from "@/Context/ExerciseContext";
+import { IExercise } from "@/Type/type";
 import React, { useContext } from "react";
 const SaveTotal = () => {
   const { saveplan } = useContext(ExContext);
   const Exercise = saveplan.length;
-  const Minutes = saveplan.reduce((total, times) => total + times.duration, 0);
+  const Minutes = saveplan.reduce((total:number, times:IExercise) => total + times.duration, 0);
   const Calories = saveplan.reduce(
-    (total, calori) => total + calori.caloriesBurned,
+    (total:number, calori:IExercise) => total + calori.caloriesBurned,
     0,
   );
   return (
