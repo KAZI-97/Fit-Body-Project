@@ -66,7 +66,7 @@ import { IExercise } from "@/Type/type";
 import Exercise_Cart from "./Exercise_Cart";
 
 const getPromise = async (): Promise<IExercise[]> => {
-  const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
+  const res = await fetch(process.env.NEXT_PUBLIC_API_URL!);
   return res.json();
 };
 
