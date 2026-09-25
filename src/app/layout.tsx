@@ -45,9 +45,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Navbar></Navbar>
           {children}
           <ToastContainer />
+          <Footer></Footer>
         </ExerciseContextProvider>
       </body>
-      <Footer></Footer>
     </html>
   );
 }

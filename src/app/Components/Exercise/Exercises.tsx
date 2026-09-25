@@ -12,7 +12,7 @@ const Exercises = async() => {
     const data = await getPromise()
     return (
         <>
-            <div className="mt-4 p-2.5 flex flex-col items-center justify-center space-y-2">
+            <div id='cart-page' className="mt-4 p-2.5 flex flex-col items-center justify-center space-y-2">
                 <h1 className={`[var(--font-oswald)] text-[#FFFFFF] text-4xl font-extrabold`}>THE LIBRARY</h1>
                 <p className={`[var(--font-inter)] text-[#9CA3AF] font-normal`}>Twelve lifts covering every major muscle group.</p>
             </div>
